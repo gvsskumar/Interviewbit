@@ -1,0 +1,19 @@
+What is react and feautres ? -->05/02
+What is State and Prop ? -->05/02
+What is JSX ? -->05/02
+What is controlled and uncontrolled components ?-->
+what is functional and class components ?
+What are the react hooks ?
+What is custom hook ?
+What is React Router ?
+What is Virtual DOM and Real Dom ?
+What is significance keys ?
+What is react handle events ?
+What are react fragements ?
+Explain react recociliations ?
+How does concurrent rendering work internally?
+How do you prevent unnecessary re-renders?
+Why is React Query preferred for API state?
+How do you handle global error handling?
+React Life Cycle methods ?
+
