@@ -1,0 +1,7 @@
+| Scenario     | Status Code |
+| ------------ | ----------- |
+| Success GET  | 200         |
+| Created      | 201         |
+| Bad request  | 400         |
+| Not found    | 404         |
+| Server error | 500         |

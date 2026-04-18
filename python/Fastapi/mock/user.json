@@ -1,0 +1,81 @@
+[{"id":1,
+"name":"Venkata",
+"username":"Venkata123",
+"email":"venkata@april.biz",
+"role":"admin",
+"address": {
+    "street":"Kulas Light",
+    "suite":"Apt. 556",
+    "city":"Gwenborough",
+    "zipcode":"92998-3874",
+    "geo": {"lat":"-37.3159","lng":"81.1496"}
+    },
+"phone":"9346814210",
+"website":"venkata.org",
+"company": {
+    "name":"Vinutuna",
+    "catchPhrase":"Multi-layered client-server neural-net",
+    "bs":"harness real-time e-markets"
+    }
+},
+{"id":2,
+"name":"satya",
+"username":"satya456",
+"email":"satya@websky.com",
+"role":"subscriber",
+"address": {
+    "street":"rjy Light",
+    "suite":"Apt. 336",
+    "city":"Vizag",
+    "zipcode":"92998-3874",
+    "geo": {"lat":"-37.3159","lng":"81.1496"}
+    },
+"phone":"93468111234",
+"website":"satya.org",
+"company": {
+    "name":"websky",
+    "catchPhrase":"Multi-layered client-server neural-net",
+    "bs":"harness real-time e-markets"
+    }
+},
+{"id":3,
+"name":"surya",
+"username":"surya223",
+"email":"surya@websky.com",
+"role":"admin",
+"address": {
+    "street":"dhd Light",
+    "suite":"hdt. 336",
+    "city":"hyd",
+    "zipcode":"92998-3874",
+    "geo": {"lat":"-37.3159","lng":"81.1496"}
+    },
+"phone":"93468111234",
+"website":"surya.org",
+"company": {
+    "name":"websky",
+    "catchPhrase":"Multi-layered client-server neural-net",
+    "bs":"harness real-time e-markets"
+    }
+},
+{"id":4,
+"name":"kumar",
+"username":"kumar765",
+"email":"kumar@websky.com",
+"role":"subscriber",
+"address": {
+    "street":"dhd Light",
+    "suite":"hdt. 336",
+    "city":"hyd",
+    "zipcode":"92998-3874",
+    "geo": {"lat":"-37.3159","lng":"81.1496"}
+    },
+"phone":"93468111234",
+"website":"surya.org",
+"company": {
+    "name":"websky",
+    "catchPhrase":"Multi-layered client-server neural-net",
+    "bs":"harness real-time e-markets"
+    }
+}
+]

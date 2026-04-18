@@ -1,0 +1,42 @@
+https://chatgpt.com/c/69dda17d-2c64-83e8-ad6c-a39e74c3e7ae
+
+Step-1: Install python dependance libraries
+pip install fastapi uvicorn python-jose passlib[bcrypt]
+pip install pydantic-settings
+
+Step-2: Set the Folder Structure
+app/
+ ├── main.py
+ ├── core/
+ │    ├── config.py
+ │    ├── security.py
+ │
+ ├── models/
+ │    ├── user.py
+ │
+ ├── schemas/
+ │    ├── user.py
+ │    ├── token.py
+ │
+ ├── db/
+ │    ├── database.py
+ │
+ ├── api/
+ │    ├── deps.py
+ │    ├── routes/
+ │         ├── auth.py
+ │         ├── users.py
+ │
+ ├── services/
+ │    ├── auth_service.py
+
+ Step -3: Config (Environment Settings) added
+ Added config variables like SECRT_KEY,ALGORITHM,ACCESS_TOKEN_EXPIRE_MINUTES,REFRESH_TOKEN_EXPIRE_DAYS
+
+ Step -4: Security (JWT + Password Hashing) in security.py
+
+ Step -5: User Model (DB Layer Example) in models/user.py
+
+ Step -6: Create database.py
+
+ 

@@ -1,0 +1,36 @@
+| Type         | Behavior           |
+| ------------ | ------------------ |
+| Blocking     | Stops everything   |
+| Non-blocking | Allows other tasks |
+
+
+6. DB Calls (Important Note ⚠️)
+👉 Use async DB drivers:
+asyncpg (PostgreSQL)
+databases library
+SQLAlchemy async engine
+
+8. When to Use Async?
+✅ Use Async For:
+API calls
+DB operations
+File handling
+External services
+
+Common Mistakes ❌
+❌ Mixing sync DB with async API
+❌ Forgetting await
+❌ Using blocking code inside async
+
+
+Real-Time Architecture Flow
+Client Requests (100 users)
+        ↓
+FastAPI Async Server
+        ↓
+Event Loop
+   ↙        ↘
+Task1     Task2
+(API)     (DB)
+        ↓
+Responses returned efficiently

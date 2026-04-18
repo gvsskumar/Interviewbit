@@ -1,0 +1,111 @@
+🎯 Problem Scenario (Real-world)
+You have a Dashboard with:
+Parent component (updates frequently, e.g., timer / state changes)
+Child component (User List)
+👉 Child should NOT re-render unless its data changes
+
+❌ Without Optimization (Bad)
+class Parent extends React.Component {
+  state = { count: 0 };
+
+  componentDidMount() {
+    setInterval(() => {
+      this.setState(prev => ({ count: prev.count + 1 }));
+    }, 1000);
+  }
+
+  render() {
+    console.log("Parent Render");
+
+    return (
+      <div>
+        <h1>Count: {this.state.count}</h1>
+        <UserList users={["A", "B", "C"]} />
+      </div>
+    );
+  }
+}
+
+class UserList extends React.Component {
+  render() {
+    console.log("UserList Render ❌");
+    return (
+      <ul>
+        {this.props.users.map(u => <li key={u}>{u}</li>)}
+      </ul>
+    );
+  }
+}
+
+🚨 Problem:
+Every second → Parent re-renders
+New array ["A","B","C"] created each time
+Child re-renders unnecessarily
+
+----------------------------------
+✅ Optimized Solution (Senior-level)
+🔥 Use PureComponent
+
+class UserList extends React.PureComponent {
+  render() {
+    console.log("UserList Render ✅ Optimized");
+
+    return (
+      <ul>
+        {this.props.users.map(u => <li key={u}>{u}</li>)}
+      </ul>
+    );
+  }
+}
+
+🔥 Fix Parent (IMPORTANT)
+class Parent extends React.Component {
+  state = { count: 0 };
+
+  users = ["A", "B", "C"]; // ✅ stable reference
+
+  componentDidMount() {
+    setInterval(() => {
+      this.setState(prev => ({ count: prev.count + 1 }));
+    }, 1000);
+  }
+
+  render() {
+    console.log("Parent Render");
+
+    return (
+      <div>
+        <h1>Count: {this.state.count}</h1>
+        <UserList users={this.users} />
+      </div>
+    );
+  }
+}
+
+🧠 Why this works
+React.PureComponent does:
+👉 Shallow comparison (props + state)
+prevProps.users === nextProps.users
+If SAME reference → ❌ no re-render
+If NEW reference → ✅ re-render
+
+⚠️ Interview Trap (VERY IMPORTANT)
+Even with PureComponent, this will FAIL:
+<UserList users={["A", "B", "C"]} />
+👉 Because every render creates a new array reference
+
+✅ Alternative: shouldComponentUpdate
+class UserList extends React.Component {
+  shouldComponentUpdate(nextProps) {
+    return nextProps.users !== this.props.users;
+  }
+
+  render() {
+    console.log("UserList Render (SCU)");
+    return (
+      <ul>
+        {this.props.users.map(u => <li key={u}>{u}</li>)}
+      </ul>
+    );
+  }
+}

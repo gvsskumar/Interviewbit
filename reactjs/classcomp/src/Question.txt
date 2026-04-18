@@ -1,0 +1,27 @@
+❓ Why avoid setState in render?
+❓ When to use getSnapshotBeforeUpdate?
+❓ Difference: PureComponent vs shouldComponentUpdate?
+❓ Why componentWillMount is deprecated?
+❓ How to debug unnecessary re-renders?
+❓ Difference between componentDidMount vs useEffect
+❓ When to use getSnapshotBeforeUpdate
+❓ Lifecycle Methods
+        Mounting, Updating, Unmounting
+❓ State batching
+❓ Reconciliation
+❓ setState Internal Behavior
+        Async batching,Partial state merge,Callback execution
+❓ Performance Optimization - Class Component
+        shouldComponentUpdate, PureComponent
+❓ Event Handling & Binding
+❓ Controlled vs Uncontrolled Components
+❓ How to validate (vulnerabilities) the npm package library safe or Notes
+        Use these tools: npm audit, Snyk, Dependabot, npm outdated
+❓ Concurrent Features (Modern React)
+        startTransition, useDeferredValue
+❓ Scheduler
+        MessageChannel, requestIdleCallback
+❓  Custom Hook
+❓  HOC
+❓  Fetch API's
+❓  Hooks

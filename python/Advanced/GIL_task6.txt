@@ -1,0 +1,15 @@
+Key Points
+multiprocessing.Pool
+    -> Creates a pool of worker processes.
+    -> Handles task distribution and joining automatically.
+
+pool.map(func, iterable)
+    -> Like the built-in map() but executes func in parallel for each item in iterable.
+    => Returns results in order.
+
+os.getpid()
+    => Shows which process is working on which task (great for debugging).
+
+Dynamic pool size
+    -> Uses all available CPU cores for optimal performance.
+    

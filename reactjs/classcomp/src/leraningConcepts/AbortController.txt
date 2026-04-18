@@ -1,0 +1,85 @@
+🧠 Quick Table
+Technology              Supported?	 Notes
+Functional Components	✅	        useEffect cleanup
+Fetch API	            ✅	        Native support
+Promises	            ❌	        Cannot cancel directly
+Axios	                ✅	        Uses AbortController (modern)
+
+✅ Approach 1: Single controller for multiple API calls
+👉 Cancels ALL requests together
+✔️ Use when:
+All APIs belong to the same screen
+You want to cancel everything on unmount
+
+useEffect(() => {
+  const controller = new AbortController();
+
+  Promise.all([
+    fetch('/api/users', { signal: controller.signal }),
+    fetch('/api/posts', { signal: controller.signal }),
+    fetch('/api/comments', { signal: controller.signal })
+  ])
+    .then(responses => Promise.all(responses.map(r => r.json())))
+    .then(data => console.log(data))
+    .catch(err => {
+      if (err.name !== 'AbortError') console.error(err);
+    });
+
+  return () => {
+    controller.abort(); // 🔥 cancels ALL requests
+  };
+}, []);
+====================
+✅ Approach 2: Separate controller per API
+👉 Cancel individual requests independently
+✔️ Use when:
+APIs are independent
+You may cancel one but keep others running
+
+useEffect(() => {
+  const userController = new AbortController();
+  const postController = new AbortController();
+
+  fetch('/api/users', { signal: userController.signal })
+    .then(res => res.json())
+    .then(data => console.log('users', data));
+
+  fetch('/api/posts', { signal: postController.signal })
+    .then(res => res.json())
+    .then(data => console.log('posts', data));
+
+  return () => {
+    userController.abort(); // cancel users
+    postController.abort(); // cancel posts
+  };
+}, []);
+-------------------------
+✅ Approach 3: Latest request only
+👉 Prevents race conditions
+Problem:
+User triggers multiple requests quickly (search box)
+
+Request A → slow
+Request B → fast
+❌ A finishes last → overwrites correct data
+
+let controller;
+
+const fetchData = async (query) => {
+  if (controller) {
+    controller.abort(); // cancel previous request
+  }
+
+  controller = new AbortController();
+
+  try {
+    const res = await fetch(`/api/search?q=${query}`, {
+      signal: controller.signal
+    });
+
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    if (err.name !== 'AbortError') console.error(err);
+  }
+};

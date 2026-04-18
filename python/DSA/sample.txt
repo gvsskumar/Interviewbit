@@ -1,0 +1,10 @@
+log.txt
+--------
+INFO User logged in
+ERROR Failed login
+INFO Data processed
+ERROR Timeout occurred
+This is sample progrema
+ERROR handling
+Python is easy
+Code ERROR

@@ -1,0 +1,49 @@
+==========Basic Tasks=========
+Create variables for a person's name, age, and salary, and print their types.
+Swap the values of two variables without using a third variable.
+Assign multiple variables in one line and print them.
+Convert a string number to an integer and add 10 to it.
+Create variables of different data types (int, float, str, bool) and display their types using type().
+
+========String Tasks==========
+Create a string variable and print its length.
+Convert a string variable to uppercase and lowercase.
+Extract the first and last characters of a string variable.
+Reverse a string stored in a variable.
+Check whether a variable contains only digits.
+
+===========List Tasks==========
+Create a list variable and add a new element to it.
+Remove a specific element from a list variable.
+Find the maximum and minimum values in a list variable.
+Check whether a value exists in a list variable.
+Convert a list variable into a tuple.
+
+============Tuple Tasks ============
+Create a tuple variable and access elements using indexing.
+Convert a tuple variable into a list.
+Count how many times a value appears in a tuple.
+
+============Dictionary Tasks =========
+Create a dictionary variable storing name, age, and city.
+Add a new key-value pair to a dictionary variable.
+Update an existing value in a dictionary variable.
+Retrieve all keys and values from a dictionary variable.
+Check if a key exists in a dictionary variable.
+
+==============Set Tasks =================
+Create a set variable and add elements to it.
+Find the union and intersection of two set variables.
+Remove duplicates from a list using a set variable.
+Type Conversion Tasks
+Convert a float variable to an integer.
+Convert a list variable into a set.
+Convert a dictionary keys into a list.
+Convert a string variable into a list of characters.
+
+==============Mixed Data Type Tasks=======
+Store different data types inside a list variable and print each element with its type.
+Create a dictionary where values contain lists of numbers and calculate their sum.
+Check if a variable is mutable or immutable.
+Write a program to detect the data type of a variable.
+Create variables and print their memory address using id().
