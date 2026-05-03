@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block content %}
+        <div class="row">
+            
+            <!-- Blog Content -->
+            <div class="col-lg-8">
+                {% if posts %}
+                <h3 class="mb-4">Latest Blog Posts</h3>
+                {% for post in posts %}
+                <!-- Blog Post 1 -->
+                <div class="card blog-card shadow-sm mb-4">
+                    <img src="{{ post.featured_image.url }}" class="card-img-top" alt="{{ post.title }}">
+                    <div class="card-body">
+                        <span class="badge bg-primary category-badge mb-2">Technology</span>
+                        <h4 class="card-title">{{post.title}}</h4>
+                        <p class="text-muted">Published on {{post.created_at}}</p>
+                        <p class="card-text">
+                           {{post.short_description}}
+                        </p>
+                        <a href="#" class="btn btn-outline-primary">Read More</a>
+                    </div>
+                </div>
+                {% endfor %}
+                
+                {% else %}
+                <h2>Not Found Posts</h2>
+                {% endif %}
+            </div>
+
+            <!-- Right Sidebar -->
+            <div class="col-lg-4">
+
+                <!-- Search Box -->
+                <div class="card sidebar-card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Search Blog</h5>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search posts...">
+                            <button class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                 {% if categories %}
+                <div class="card sidebar-card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Categories</h5>
+                        <ul class="list-group list-group-flush">
+                            {% for cat in categories %}
+                            <li class="list-group-item">{{cat.category_name}}</li>
+                            {% endfor %}
+                            
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+                <!-- Featured Posts -->
+                 {% if featured_posts %}
+                <div class="card sidebar-card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Featured Posts</h5>
+                        {% for post in featured_posts %}
+                        <div class="mb-3 border-bottom pb-2">
+                            <h6>Microservices with Django</h6>
+                            <small class="text-muted">Architecture & Deployment</small>
+                        </div>
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+                {% endif %}
+                <!-- About Widget -->
+                <div class="card sidebar-card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">About Blog</h5>
+                        <p>
+                            This blog shares tutorials, development guides,
+                            system design concepts, and software engineering tips.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+{% endblock %}        
+
